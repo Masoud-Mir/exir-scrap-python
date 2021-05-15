@@ -54,7 +54,7 @@ url = "https://api.exir.io/v1/trades"
          for trade in parsed_data_2[item]:
              trade_data_2 = (item, first_name, second_name, trade['size'], trade['price'], trade['side'], trade['timestamp'])
 
-             if trade_data_2 not in val[len(val)-(len(item)*50):]:
+             if trade_data_2 not in val[len(val)-(len(parsed_data_2.keys())*50):]:
                  val.append(trade_data_2)
                  print(trade_data_2)
                  mycursor.executemany(sql, val)
